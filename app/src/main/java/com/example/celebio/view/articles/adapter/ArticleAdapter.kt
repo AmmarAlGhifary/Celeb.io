@@ -1,9 +1,9 @@
 package com.example.celebio.view.articles.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +12,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.celebio.R
 import com.example.celebio.data.model.Articles
 import com.example.celebio.databinding.ItemArticleListBinding
+import com.example.celebio.view.articles.ArticlesFragmentDirections
 
 class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
 
@@ -37,10 +38,13 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
     override fun getItemCount(): Int = dataArticles.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val article = dataArticles[position]
         dataArticles[position]
-        holder.bind(dataArticles[position])
-        holder.itemView.setOnClickListener {
 
+        holder.bind(dataArticles[position])
+        holder.itemView.setOnClickListener {mViews ->
+            val direction = ArticlesFragmentDirections.actionArticlesFragmentToDetailFragment(article)
+            mViews.findNavController().navigate(direction)
         }
     }
 

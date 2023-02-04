@@ -9,6 +9,23 @@
         android:id="@+id/articlesFragment"
         android:name="com.example.celebio.view.articles.ArticlesFragment"
         android:label="ArticlesFragment"
-        tools:layout="@layout/fragment_articles"/>
+        tools:layout="@layout/fragment_articles">
+        <action
+            android:id="@+id/action_articlesFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.celebio.view.detail.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/action_detailFragment_to_articlesFragment"
+            app:destination="@id/articlesFragment" />
+
+        <argument
+            android:name="article"
+            app:argType="com.example.celebio.data.model.Articles" />
+    </fragment>
 
 </navigation>

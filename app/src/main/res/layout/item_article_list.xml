@@ -21,7 +21,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="?attr/cardBackgroundColor">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_articles"
@@ -35,23 +36,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/iv_articles"
-                android:layout_margin="10dp"
-                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:textSize="20sp"
                 android:text="@{articles.contributorName}"
                 tools:text="@string/str_contributor_name"
                 android:fontFamily="@font/roboto_medium_italic"
-                android:textColor="@color/pink_500" />
+                android:textColor="?attr/colorSecondary" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/tv_contributor_name"
-                android:layout_margin="10dp"
                 android:fontFamily="@font/roboto_regular"
+                android:layout_margin="10dp"
                 android:text="@{articles.content}"
+                android:textColor="?attr/colorSecondary"
                 tools:text="@string/str_content_desc"
-                android:textColor="@color/black"
                 android:textSize="25sp" />
+
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>
