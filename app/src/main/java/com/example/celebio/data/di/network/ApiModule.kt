@@ -28,7 +28,7 @@ object ApiModule {
             .build()
             .create(ApiService::class.java)
 
-    private fun buildRetrofitClient(): OkHttpClient {
+    fun buildRetrofitClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
         builder.readTimeout(120, TimeUnit.SECONDS)
         builder.connectTimeout(120, TimeUnit.SECONDS)
